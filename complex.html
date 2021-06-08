@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
+    Complex Color Flipper
+  </title>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <nav>
+    <div class="nav-center">
+      <h4>color flipper</h4>
+      <ul class="nav-links">
+        <li><a href="./index.html">simple</a></li>
+        <li><a href="./complex.html">complex</a></li>
+      </ul>
+    </div>
+  </nav>
+  <main>
+    <div class="container">
+      <div>
+        <label for="quantity">Quantity (between 1 and 10):</label>
+        <input type="number" id="quantity" name="quantity" min="1" max="10" required><br>
+      </div><br>
+      <div>
+        <label for="angle">Angle (between 0 and 360):</label>
+        <input type="number" id="angle" name="angle" min="0" max="360" required><br>
+      </div><br>
+      <button class="btn btn-hero" id="btn">click me</button>
+    </div>
+  </main>
+
+  <script src="./complex.js"></script>
+</body>
+
+</html>

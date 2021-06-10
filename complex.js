@@ -5,10 +5,10 @@ const main = document.querySelector("main");
 const btn = document.querySelector("#btn");
 
 const quantity = document.querySelector("#quantity");
-const angle = document.querySelector("#angle");
+const quantityError = document.querySelector(".quantity-error");
 
-const errorPara = document.createElement("p");
-errorPara.classList.add("error-msg");
+const angle = document.querySelector("#angle");
+const angleError = document.querySelector(".angle-error");
 
 function getRandomNumber(arr) {
   return Math.floor(Math.random() * arr.length);
@@ -23,19 +23,29 @@ function getRandomColor() {
   return hexColor;
 }
 
-function validateInput(input) {
-  input.parentElement.appendChild(errorPara);
-  if (!input.checkValidity()) {
-    errorPara.innerHTML = input.validationMessage;
+function validateQuantity() {
+  if (!quantity.checkValidity()) {
+    quantityError.innerHTML = quantity.validationMessage;
     return false;
   } else {
-    errorPara.innerHTML = "";
+    quantityError.innerHTML = "";
+    return true;
+  }
+}
+
+function validateAngle() {
+  if (!angle.checkValidity()) {
+    angleError.innerHTML = angle.validationMessage;
+    return false;
+  } else {
+    angleError.innerHTML = "";
     return true;
   }
 }
 
 btn.addEventListener("click", function () {
-  const isAllValid = validateInput(quantity) && validateInput(angle);
+  const isAllValid = [validateQuantity(), validateAngle()];
+  console.log(isAllValid);
   if (isAllValid) {
     let newBackgroundImage = "";
     let colorPattern = "";
